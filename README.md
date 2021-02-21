@@ -1,5 +1,9 @@
 # AWS DeepRacer Workshop
 
+This lab is provided as part of **[AWS Innovate AI/ML Edition](https://aws.amazon.com/events/aws-innovate/machine-learning/)**, click [here](https://github.com/phonghuule/aws-innovate-ai-ml) to explore the full list of hands-on labs.
+
+ℹ️ You will run this lab in your own AWS account. Please follow directions at the end of the lab to remove resources to avoid future costs.
+
 # Notes
 - After the lab, make sure you check out new features in the console: **Garage**, where you can customize the sensors on your car, and **Community races** where you can create your own virtual races in the AWS console that you can race in with friends and colleagues.
 - **In this lab we are targeting a time-trial model**. You can get a reasonable time-trial model within 120 minutes of training.
@@ -544,6 +548,10 @@ After you're finished with this lab, clean up your resources.
 Navigate to your Deepracer Models and delete
 
 ![delete model](img/delete_model.png)
+
+## Survey
+Please help us to provide your feedback [here](https://amazonmr.au1.qualtrics.com/jfe/form/SV_b7mXqfAaiIZUnn8?Session=Lab9).
+Participants who complete the surveys from AWS Innovate Online Conference - AI & Machine Learning Edition will receive a gift code for USD25 in AWS credits. AWS credits will be sent via email by 31 March, 2021.
 
 
 
