@@ -127,6 +127,10 @@ This page gives you the ability to create an RL model for AWS DeepRacer and star
 
 ![Model Name](img/create_model_1_model_name.png)
 
+Scroll down and please select the European Seaside Circuit track from the Environment Simulation section. This is the track that you will encounter in the AWS DeepRacer League.
+
+![Model Name](img/create_model_1_model_name_b.png)
+
 ### 4.1 Model name and race track
 
 #### 4.1.1 Model name
