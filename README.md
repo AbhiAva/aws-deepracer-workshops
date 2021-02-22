@@ -25,7 +25,8 @@ The lab is split into three sections:
 
 - [Section 1: Training your first time-trial model](#Section-1:-Training-your-first-model) 
 - [Section 2: Model training and improving your model](#Section-2:-Model-training-and-improving-your-model)
-- [Section 3: Clean Up](#Section-3:-Clean-up)
+- [Section 3: Race in the AWS DeepRacer League](#Section-3:-Race-in-the-AWS-DeepRacer-League)
+- [Section 4: Clean Up](#Section-4:-Clean-up)
 
 Goals one and two are covered in Section 1, goal three is covered in Section 2, and goal four is covered in Section 3.
 
@@ -45,11 +46,11 @@ Make sure you are in the **N. Virginia** region and navigate to [AWS DeepRacer](
 
 We can call out items in the left-hand navigation bar:
 
-- **Get started with reinforcement learning**: Get an interactive introduction to RL.
-- **Models**: View your list of models, create new models, or clone existing models.
-- **New! Garage**: You can now customize your own virtual cars by experimenting with different sensor combinations and neural network selections. This is also where you specify the action space for your car.
-- **Official DeepRacer Virtual Circuit**: Get ready for the 2020 League by training your models and racing in the pre-season races here.
-- **New! Community Races**: Create your own virtual races that you can share with friends and colleagues.
+- **Get started**: Get an interactive introduction to RL.
+- **Your Models**: View your list of models, create new models, or clone existing models.
+- **Your Garage**: You can now customize your own virtual cars by experimenting with different sensor combinations and neural network selections. This is also where you specify the action space for your car.
+- **AWS Virtual Circuit**: Get ready for the Racing League by training your models and racing in the pre-season races here.
+- **Community Races**: Create your own virtual races that you can share with friends and colleagues.
 
 Let's dive into the Garage first, as this is where we will customize the car we will use during model training. Please expand the left hand navigation bar and select **Garage**.
 
@@ -78,8 +79,7 @@ Please select **Next**.
 
 ### 2.2 Action space
 
-![Garage step 2a](img/garage_step_2a.png)
-![Garage step 2b](img/garage_step_2b.png)
+![Garage step 2](img/garage_step_2.png)
 
 In this section you get to configure the action space that your model will use during training. Once the model has been trained with a specific action space, you can't change the action space in the console as this is the last layer of the network, specifically the number of output nodes. An action is a combination of speed and steering angle. In AWS DeepRacer we are using a **discrete action** space as opposed to a continuous action space. To build this discrete action space you will specify the maximum steering angle, the steering angle granularity, the maximum speed, and the speed granularity. The action space inputs are:
 
@@ -125,27 +125,21 @@ To create your model select **Create model**.
 ## Step 4: Create model
 This page gives you the ability to create an RL model for AWS DeepRacer and start training the model. We are going to create a model that can be used by the AWS DeepRacer car to autonomously drive around a virtual race track. We need to select the specific race track we want to train on, specify the reward function that will be used to incentivize our desired driving behavior during training, configure hyperparameters, and specify our stopping conditions. 
 
-![Model Name](img/create_model_1_model_name.png)
-
-Scroll down and please select the European Seaside Circuit track from the Environment Simulation section. This is the track that you will encounter in the AWS DeepRacer League.
-
-![Model Name](img/create_model_1_model_name_b.png)
-
 ### 4.1 Model name and race track
-
 #### 4.1.1 Model name
 Please provide a name for your model e.g. MyFirstModel.
 
-#### 4.1.2 Race track
+![Model Name](img/create_model_1_model_name.png)
 
+#### 4.1.2 Race track
 
 As detailed in the workshop, training our RL model takes place on a simulated race track in our simulator, and in this section you will choose the track on which you will train your model. AWS RoboMaker is used to spin up the simulation environment.
 
 When training a model, keep the track on which you want to race in mind. Train on the track most similar to the final track you intend to race on. While this isn't required and doesn't guarantee a good model, it will maximize the odds that your model will get its best performance on the race track. Furthermore, if you train on a straight track, don't expect your model to learn how to turn.
 
-Scroll down and **please select the AWS Summit Raceway track** from the Environment Simulation section. This is the track that you will encounter in the 2020 Summit Circuit.  
+Scroll down and please select the European Seaside Circuit track from the Environment Simulation section. This is the track that you will encounter in the AWS DeepRacer League.
 
-![Model environment](img/create_model_1_environment_simulation.png)
+![Model Name](img/create_model_1_model_name_b.png)
 
 Scroll down and select **Next**.
 
@@ -506,19 +500,12 @@ Once done you should see something as follows.
 
 ![evaluation_done](img/evaluationdone.png)
 
-## 2.3: Race in the AWS DeepRacer League
+## Section 3: Race in the AWS DeepRacer League
 
-If you are happy with your model you can go race in the [Summit Circuit](https://aws.amazon.com/deepracer/summit-circuit/) or in the [Virtual Circuit](https://console.aws.amazon.com/deepracer/home?region=us-east-1#leaderboards). You can submit your trained model into the Virtual Circuit's current open race [here](https://console.aws.amazon.com/deepracer/home?region=us-east-1#leaderboards).
+## 3.1 Join the Race
+If you are happy with your model you can go race in the [AWS DeepRacer League](https://aws.amazon.com/events/aws-innovate/machine-learning/deepracer/). You can submit your trained model into the AWS DeepRacer League's current open race [here](https://console.aws.amazon.com/deepracer/home?region=us-east-1#league/arn%3Aaws%3Adeepracer%3A%3A%3Aleaderboard%2Ffcdb9ab2-5493-4a5f-950a-31859571de45).
 
-## 2.4: Create and host your own Virtual Race
-
-Navigate to [Community races](https://console.aws.amazon.com/deepracer/home?region=us-east-1#/races) in the console and **create your own virtual race**.
-
-![community races](img/communityraces.png)
-
-You can share the code with your friends and colleagues and create a league of your own!
-
-## 2.5: Iterating and improving your model
+## 3.2: Iterating and improving your model
 
 Based on the evaluation of the model you should have a good idea as to whether your model can complete the track reliably, and what the average lap time is. Note that for the Virtual Circuit races you will have to complete a certain number of laps consecutively with your model, and so focus on building a reliable model. The number of laps will be determined race by race.
 
@@ -530,22 +517,7 @@ Hints:
 - Tweak your reward function to incentivize your car to drive faster : you’ll want to specifically modify progress, steps and speed variables.
 - Clone your model to leverage training experience. Please note that you will not be able to change action space once a model is cloned, otherwise the job will fail.
 
-## 2.6: Analyze model performance by inspecting the RoboMaker logs
-If you do want to go a step further, you can evaluate the performance of each model that was trained during the training job by inspecting the log file.
-
-To download the log file from CloudWatch you can use the following code with [Amazon CLI](https://docs.aws.amazon.com/polly/latest/dg/setup-aws-cli.html).  
-
-**Download the RoboMaker log from CloudWatch**
-
-1. [Quick Analysis] Get last 10000 lines from the log
-
-	aws logs get-log-events --log-group-name  "/aws/robomaker/SimulationJobs"  --log-stream-name  "<STREAM_NAME>" --output text --region us-east-1 > deepracer-sim.log
-
-2. [Export Entire Log] Copy the log from Amazon Cloudwatch to Amazon S3. Follow the link to export all the logs to [Amazon S3](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3ExportTasks.html)
-
-You can now analyze the log file using Python Pandas and see which model iterations provided the highest total reward. Furthermore, if you did add a finish bonus, you can see which model iterations were able to finish a lap. These models are good candidates to test in the simulator and in the real world.
-
-# Section 3: Clean up
+## Section 4: Clean up
 
 After you're finished with this lab, clean up your resources.
 
